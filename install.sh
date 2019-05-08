@@ -6,6 +6,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 create_symlinks() {
     declare -a FILES_TO_SYMLINK=(
         "gitconfig"
+        "vim/vimrc"
     )
 
     local i=""
@@ -47,8 +48,23 @@ create_symlinks() {
 }
 
 
+install_vim_plugins() {
+    declare -r MOLOKAI_THEME_URL="https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim"
+    declare -r VIM_PLUG_INSTALL_URL="https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+
+    execute \
+        "curl -fLo ~/.vim/colors/molokai.vim --create-dirs $MOLOKAI_THEME_URL"
+
+    execute \
+        "curl -fLo ~/.vim/autoload/plug.vim --create-dirs $VIM_PLUG_INSTALL_URL"
+
+    vim +PlugInstall
+}
+
+
 main() {
     print_in_purple "\n • Create symbolic links\n\n"
+    install_vim_plugins
     create_symlinks "$@"
 }
 
