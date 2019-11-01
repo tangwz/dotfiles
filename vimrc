@@ -29,6 +29,7 @@ set number                     " Show line number.
 
 set tags=./.tags;,.tags        " Set directory for ctags.
 
+set noshowmode
 
 
 " ----------------------------------------------------------------------
@@ -54,10 +55,13 @@ Plug 'mhinz/vim-signify'
 Plug 'Valloric/YouCompleteMe'
 Plug 'Yggdroot/LeaderF'
 Plug 'chr4/nginx.vim'
-Plug 'fatih/vim-go'
 Plug 'junegunn/vim-easy-align'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'Shougo/echodoc.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'tpope/vim-fugitive'
+Plug 'raimondi/delimitmate'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
