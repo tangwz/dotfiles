@@ -50,11 +50,10 @@ call plug#begin('~/.vim/plugged')
 
 " Declare the list of plugins.
 Plug 'ludovicchabant/vim-gutentags'
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 Plug 'mhinz/vim-signify'
 Plug 'Valloric/YouCompleteMe'
 Plug 'Yggdroot/LeaderF'
-Plug 'chr4/nginx.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'Shougo/echodoc.vim'
@@ -62,6 +61,9 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
 Plug 'raimondi/delimitmate'
+Plug 'nathangrigg/vim-beancount'
+Plug 'tenfyzhong/CompleteParameter.vim'
+Plug 'rust-lang/rust.vim'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()

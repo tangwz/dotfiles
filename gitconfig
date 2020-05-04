@@ -5,4 +5,19 @@
     commitencoding = utf-8
     logoutputencoding = utf-8
 [core]
-	editor = vim
+    editor = vim
+[alias]
+    co = checkout
+    ss = status
+
+    b = branch
+    br = branch -r
+
+    c = commit
+    ca = commit -a
+    cm = commit -m
+
+    d = diff
+    dp = diff --patience
+    dc = diff --cached
+    dk = diff --check

@@ -64,6 +64,9 @@ install_vim_plugins() {
 
 main() {
     print_in_purple "\n • Create symbolic links\n\n"
+    if [ -x "utils.sh" ]; then
+        . "utils.sh" || exit 1
+    fi
     install_vim_plugins
     create_symlinks "$@"
 }
