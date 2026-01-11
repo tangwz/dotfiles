@@ -1,6 +1,8 @@
 [user]
-    name = tangwz
-    email = tangwz.com@gmail.com
+    name =
+    email =
+[include]
+    path = ~/.gitconfig.local
 [i18n]
     commitencoding = utf-8
     logoutputencoding = utf-8
