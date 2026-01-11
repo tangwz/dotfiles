@@ -1,12 +1,5 @@
 # dotfiles
 
-Small dotfiles repo focused on Git configuration.
-
-## What this repo does
-
-- Symlinks `gitconfig` to `~/.gitconfig`
-- Expects a local override at `~/.gitconfig.local` for private user info
-
 ## Usage
 
 ```sh

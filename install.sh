@@ -4,13 +4,15 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
     && . "utils.sh"
 
 create_symlinks() {
-    declare -a FILES_TO_SYMLINK=(
-        "gitconfig"
+    declare -a SYMLINKS=(
+        "gitconfig:$HOME/.gitconfig"
+        "codex/AGENTS.md:$HOME/.codex/AGENTS.md"
     )
 
-    local i=""
+    local item=""
     local sourceFile=""
     local targetFile=""
+    local targetDir=""
     local skipQuestions=false
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -20,9 +22,14 @@ create_symlinks() {
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    for i in "${FILES_TO_SYMLINK[@]}"; do
-        sourceFile="$(pwd)/$i"
-        targetFile="$HOME/.$(printf "%s" "$i" | sed "s/.*\/\(.*\)/\1/g")"
+    for item in "${SYMLINKS[@]}"; do
+        sourceFile="$(pwd)/${item%%:*}"
+        targetFile="${item#*:}"
+        targetDir="$(dirname "$targetFile")"
+
+        if [ ! -d "$targetDir" ]; then
+            mkd "$targetDir"
+        fi
 
         if [ ! -e "$targetFile" ] || $skipQuestions; then
             execute \
@@ -46,7 +53,6 @@ create_symlinks() {
         fi
     done
 }
-
 
 main() {
     print_in_purple "\n • Create symbolic links\n\n"
